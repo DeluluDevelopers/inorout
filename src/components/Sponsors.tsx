@@ -13,6 +13,7 @@ const sponsors = [
   { name: "Gaga", image: "/patners/gaga.png" },
   { name: "In Or Out", image: "/patners/inOrOut.png" },
   { name: "IWE", image: "/patners/iwe.png" },
+  { name: "Mam Pikin", image: "/patners/mam pikin.png" },
   { name: "Reckish", image: "/patners/reckish.png" },
   { name: "Ricky", image: "/patners/ricky.png" },
   { name: "Taari", image: "/patners/taari.png" },

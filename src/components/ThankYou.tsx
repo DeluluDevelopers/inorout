@@ -100,6 +100,85 @@ const ThankYou = () => {
                 </p>
               </div>
             </motion.div>
+
+            {/* About kjnrwhite Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className='mt-12 pt-8 border-t border-white/20'
+            >
+              <div className='grid md:grid-cols-2 gap-8 items-center'>
+                {/* About kjnrwhite */}
+                <div>
+                  <h3 className='font-heading font-bold text-2xl md:text-3xl text-kente-gold mb-6'>
+                    About kjnrwhite
+                  </h3>
+                  <div className='space-y-4 text-cream/90'>
+                    <p>
+                      <strong>Nwa-Mazi Kanu Chukwuma Greg</strong> popularly known as 
+                      kjnrwhite is an Entertainer, Event Planner, Nollywood Actor, 
+                      and A Student of Sharda University, Greater Noida, India. 
+                      A Native of Ndi-Akunwanta Uno Arondizuogu Imo state Nigeria.
+                    </p>
+                    <p>
+                      kjnrwhite has the passion to create an Environment that 
+                      foster Harmony, Unity and Love, he has been actively 
+                      involved in the Entertainment industry since 2016.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Central Image */}
+                <div className='flex justify-center'>
+                  <div className='relative w-64 h-80 rounded-2xl overflow-hidden border-4 border-kente-gold shadow-2xl'>
+                    <Image
+                      src='/assets/kjnrwhite.png'
+                      alt='kjnrwhite - Nwa-Mazi Kanu Chukwuma Greg'
+                      fill
+                      className='object-cover'
+                    />
+                    <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent' />
+                  </div>
+                </div>
+              </div>
+
+              {/* Past Achievements */}
+              <div className='mt-12'>
+                <h3 className='font-heading font-bold text-2xl md:text-3xl text-kente-gold mb-6'>
+                  Past Achievements
+                </h3>
+                <div className='space-y-4 text-cream/90'>
+                  <p>
+                    Successfully organized multiple events, including: A Trip to 
+                    Party 6; vibrant event celebrating youth and music. Wet Before Winter: 
+                    A well-received cultural and entertainment experience. Known for his 
+                    ability to bring together diverse audiences and deliver memorable experiences.
+                  </p>
+                  <p>
+                    <strong>Commitment to Excellence:</strong> With a proven track record, 
+                    KJNRWHITE is dedicated to ensuring that the "IN or OUT Afro vibe festival 2025" 
+                    will be a world-class event, fostering cultural exchange and unity between 
+                    Indian nationals and Africans.
+                  </p>
+                </div>
+              </div>
+
+              {/* Thank you for coming banner */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className='mt-12 text-center'
+              >
+                <div className='relative'>
+                  <h2 className='font-heading font-bold text-4xl md:text-6xl text-transparent bg-gradient-to-r from-kente-gold via-terracotta to-kente-red bg-clip-text animate-fire-flicker'>
+                    Thank you for coming
+                  </h2>
+                  <div className='absolute inset-0 bg-gradient-to-r from-kente-gold/20 via-terracotta/20 to-kente-red/20 blur-xl -z-10 animate-pulse' />
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
