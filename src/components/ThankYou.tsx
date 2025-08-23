@@ -157,7 +157,7 @@ const ThankYou = () => {
                   </p>
                   <p>
                     <strong>Commitment to Excellence:</strong> With a proven track record, 
-                    KJNRWHITE is dedicated to ensuring that the "IN or OUT Afro vibe festival 2025" 
+                    KJNRWHITE is dedicated to ensuring that the &ldquo;IN or OUT Afro vibe festival 2025&rdquo; 
                     will be a world-class event, fostering cultural exchange and unity between 
                     Indian nationals and Africans.
                   </p>
