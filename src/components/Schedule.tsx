@@ -116,11 +116,11 @@ const ScheduleItem = ({
   const getTypeColor = (type: string) => {
     switch (type) {
       case "performance":
-        return "var(--accent-pink)";
+        return "var(--kente-red)";
       case "special":
-        return "var(--accent-cyan)";
+        return "var(--kente-gold)";
       default:
-        return "var(--accent-yellow)";
+        return "var(--terracotta)";
     }
   };
 
@@ -165,14 +165,14 @@ const ScheduleItem = ({
         transition={{ duration: 0.2 }}
       >
         <div
-          className='glass rounded-xl p-6 cursor-pointer group hover:bg-white/5 transition-all duration-300'
+          className='schedule-card glass-warm rounded-xl p-6 cursor-pointer group hover:bg-kente-gold/5 transition-all duration-300 border-l-4 border-kente-gold'
           onClick={() => setIsExpanded(!isExpanded)}
         >
           <div className='flex items-start space-x-6'>
             {/* Time Circle with Icon */}
             <div className='flex-shrink-0 relative'>
               <div
-                className='w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg'
+                className='w-12 h-12 rounded-full flex items-center justify-center text-bg-dark shadow-lg animate-drum-beat'
                 style={{
                   backgroundColor: getTypeColor(item.type),
                   boxShadow: `0 0 20px ${getTypeColor(item.type)}40`,
@@ -181,7 +181,7 @@ const ScheduleItem = ({
                 {getTypeIcon(item.type)}
               </div>
               <div className='absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap'>
-                <span className='text-xs font-mono text-white/60 bg-black/50 px-2 py-1 rounded'>
+                <span className='text-xs font-mono text-sand glass-warm px-2 py-1 rounded border border-kente-gold/30'>
                   {item.time}
                 </span>
               </div>
@@ -190,13 +190,13 @@ const ScheduleItem = ({
             {/* Content */}
             <div className='flex-1 min-w-0'>
               <div className='flex items-center justify-between mb-2'>
-                <h3 className='font-heading font-bold text-xl md:text-2xl text-white group-hover:text-[var(--accent-cyan)] transition-colors'>
+                <h3 className='font-heading font-bold text-xl md:text-2xl text-cream group-hover:text-kente-gold transition-colors'>
                   {item.title}
                 </h3>
 
                 {/* Type Badge */}
                 <span
-                  className='px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide'
+                  className='px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide border'
                   style={{
                     backgroundColor: `${getTypeColor(item.type)}20`,
                     color: getTypeColor(item.type),

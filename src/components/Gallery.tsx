@@ -329,11 +329,14 @@ const Gallery = () => {
   return (
     <section
       id='gallery'
-      className='py-20 px-6 bg-gradient-to-br from-[var(--bg-dark)] to-[var(--bg-mid)] relative overflow-hidden'
+      className='py-20 px-6 bg-gradient-to-br from-[var(--bg-dark)] to-[var(--bg-mid)] relative overflow-hidden earth-texture'
     >
-      {/* Background elements */}
-      <div className='absolute top-20 right-0 w-96 h-96 bg-[var(--accent-pink)]/5 rounded-full blur-3xl' />
-      <div className='absolute bottom-20 left-0 w-80 h-80 bg-[var(--accent-cyan)]/5 rounded-full blur-3xl' />
+      {/* Background elements with Afro vibes */}
+      <div className='absolute top-20 right-0 w-96 h-96 bg-terracotta/20 rounded-full blur-3xl animate-grass-sway' />
+      <div className='absolute bottom-20 left-0 w-80 h-80 bg-kente-gold/15 rounded-full blur-3xl animate-fire-flicker' />
+      
+      {/* Kente pattern overlay */}
+      <div className='absolute inset-0 triangle-motif opacity-10' />
 
       <div className='container mx-auto max-w-7xl relative z-10' ref={ref}>
         <motion.div
@@ -342,11 +345,11 @@ const Gallery = () => {
           transition={{ duration: 0.8 }}
           className='text-center mb-16'
         >
-          <h2 className='font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-white'>
-            Event <span className='neon-text'>Gallery</span>
+          <h2 className='font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-cream'>
+            Event <span className='afro-heading animate-rhythm'>Gallery</span>
           </h2>
-          <p className='font-body text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12'>
-            Relive the magic from previous Flow Party events and get excited for
+          <p className='font-body text-lg md:text-xl text-sand max-w-2xl mx-auto mb-12'>
+            Relive the magic from previous Afro Vibe Festival events and get excited for
             what&apos;s to come
           </p>
 
@@ -363,10 +366,10 @@ const Gallery = () => {
                 onClick={() => setSelectedCategory(category)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full font-body font-semibold transition-all duration-300 ${
+                className={`filter-chip px-6 py-3 rounded-full font-body font-semibold transition-all duration-300 ${
                   selectedCategory === category
-                    ? "bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-cyan)] text-black"
-                    : "bg-white/10 text-white border border-white/20 hover:bg-white/20"
+                    ? "active bg-afro-gradient text-bg-dark"
+                    : "glass-warm text-cream border border-kente-gold/30 hover:bg-kente-gold/10"
                 }`}
               >
                 {category}
