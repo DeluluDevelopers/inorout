@@ -334,7 +334,7 @@ const Gallery = () => {
       {/* Background elements with Afro vibes */}
       <div className='absolute top-20 right-0 w-96 h-96 bg-terracotta/20 rounded-full blur-3xl animate-grass-sway' />
       <div className='absolute bottom-20 left-0 w-80 h-80 bg-kente-gold/15 rounded-full blur-3xl animate-fire-flicker' />
-      
+
       {/* Kente pattern overlay */}
       <div className='absolute inset-0 triangle-motif opacity-10' />
 
@@ -349,8 +349,8 @@ const Gallery = () => {
             Event <span className='afro-heading animate-rhythm'>Gallery</span>
           </h2>
           <p className='font-body text-lg md:text-xl text-sand max-w-2xl mx-auto mb-12'>
-            Relive the magic from previous Afro Vibe Festival events and get excited for
-            what&apos;s to come
+            Relive the magic from previous Afro Vibe Festival events and get
+            excited for what&apos;s to come
           </p>
 
           {/* Category filters */}

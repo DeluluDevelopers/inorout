@@ -17,7 +17,7 @@ module.exports = {
         "accent-yellow": "var(--accent-yellow)",
         muted: "var(--muted)",
         glass: "var(--glass)",
-        
+
         // Afro Vibe Color Palette
         ochre: {
           deep: "var(--ochre-deep)",

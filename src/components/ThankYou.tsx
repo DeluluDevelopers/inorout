@@ -40,7 +40,7 @@ const ThankYou = () => {
               <span className='text-white/80 font-body'>📞 +91 8798914926</span>
               <span className='text-white/80 font-body'>📞 +91 7042581204</span>
               <span className='text-[var(--accent-cyan)] font-body'>
-                ✉️ kjnrwhite@gmail.com
+                ✉️ info@inorout.world
               </span>
             </div>
           </div>

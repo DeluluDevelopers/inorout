@@ -103,7 +103,7 @@ export default function PrivacyPolicy() {
                 contact us at:
               </p>
               <div className='mt-4 space-y-2'>
-                <p>📧 Email: kjnrwhite@gmail.com</p>
+                <p>📧 Email: info@inorout.world</p>
                 <p>📞 Phone: +91 8798914926, +91 7042581204</p>
               </div>
             </section>

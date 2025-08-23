@@ -29,10 +29,10 @@ const Hero = () => {
 
       {/* Afro-inspired Background Layers */}
       <div className='absolute inset-0 bg-gradient-to-br from-[var(--bg-dark)] via-[var(--bg-mid)] to-[var(--clay)] z-0' />
-      
+
       {/* Kente Pattern Overlay */}
       <div className='absolute inset-0 kente-pattern opacity-20 z-5' />
-      
+
       {/* Warm Gradient Overlay */}
       <div className='absolute inset-0 bg-gradient-to-r from-[var(--terracotta)]/30 via-transparent to-[var(--kente-gold)]/20 animate-fire-flicker z-10' />
 
@@ -98,7 +98,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1.2 }}
           className='text-sand text-lg md:text-xl mb-12 font-body'
         >
-          Bliss Resorts, Rishikesh | Day 1: 4pm till dawn | Day 2: 8am - 1am
+          Bliss Resorts, Rishikesh | Day 1: 4pm till dawn | Day 2: 8am till dawn
         </motion.div>
 
         <motion.div
