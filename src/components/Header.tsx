@@ -155,9 +155,9 @@ const Header = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.1 }}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className='inline-block mt-4 px-6 py-3 bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-yellow)] text-black font-body font-semibold rounded-full'
+                className='inline-block mt-4 btn-tactile px-6 py-3 bg-afro-gradient text-bg-dark font-body font-semibold rounded-full'
               >
-                Buy Tickets
+                🎟️ Buy Tickets
               </motion.a>
             </div>
           </motion.div>
