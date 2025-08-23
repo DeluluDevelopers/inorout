@@ -37,6 +37,12 @@ const artists: Artist[] = [
     bio: "Young talent with incredible hustle, mixing urban beats with African rhythms to create groundbreaking soundscapes.",
     image: "/djs/hustle.png",
   },
+  {
+    name: "DJ Golden",
+    genre: "Golden Age Afrobeats / Soul",
+    bio: "Spinning timeless classics and soulful Afrobeat gems, DJ Golden brings a touch of nostalgia and pure vibes.",
+    image: "/djs/dj_golden.jpg",
+  },
 ];
 
 const ArtistCard = ({ artist, index }: { artist: Artist; index: number }) => {

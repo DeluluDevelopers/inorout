@@ -24,11 +24,6 @@ const Sponsors = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  // Create separate arrays to avoid mutation issues
-  const duplicatedSponsors = [...sponsors, ...sponsors];
-  const reversedSponsors = [...sponsors].reverse();
-  const duplicatedReversedSponsors = [...reversedSponsors, ...reversedSponsors];
-
   return (
     <section
       id='sponsors'
@@ -55,18 +50,18 @@ const Sponsors = () => {
           </p>
         </motion.div>
 
-        {/* Infinite Scrolling Sponsors */}
+        {/* First Row - Left to Right */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className='relative overflow-hidden'
+          className='relative overflow-hidden mb-8'
         >
           <div className='flex items-center'>
             <motion.div
-              className='flex items-center space-x-12 whitespace-nowrap'
+              className='flex items-center space-x-8 whitespace-nowrap'
               animate={{
-                x: [0, -1584], // Adjusted for smoother animation (11 sponsors * 144px)
+                x: ["0%", "-50%"],
               }}
               transition={{
                 x: {
@@ -77,67 +72,80 @@ const Sponsors = () => {
                 },
               }}
             >
-              {duplicatedSponsors.map((sponsor, index) => (
-                <motion.div
-                  key={`${sponsor.name}-${index}`}
-                  className='flex-shrink-0 w-32 h-20 relative group'
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+              {[...sponsors, ...sponsors].map((sponsor, index) => (
+                <div
+                  key={`row1-${sponsor.name}-${index}`}
+                  className='flex-shrink-0 w-40 h-28'
                 >
-                  <div className='glass rounded-xl p-4 w-full h-full flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all group-hover:shadow-lg'>
+                  <motion.div
+                    className='w-full h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl border border-white/20 flex items-center justify-center p-4 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer'
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(255, 255, 255, 0.15)",
+                      borderColor: "rgba(255, 255, 255, 0.3)",
+                    }}
+                  >
                     <Image
                       src={sponsor.image}
                       alt={sponsor.name}
-                      width={80}
-                      height={40}
-                      className='object-contain filter brightness-90 group-hover:brightness-110 transition-all'
+                      width={120}
+                      height={80}
+                      className='object-contain max-w-full max-h-full filter brightness-90 group-hover:brightness-110 transition-all duration-300'
                     />
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               ))}
             </motion.div>
           </div>
         </motion.div>
 
-        {/* Second Row - Reverse Direction */}
+        {/* Second Row - Right to Left */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className='relative overflow-hidden mt-8'
+          className='relative overflow-hidden'
         >
           <div className='flex items-center'>
             <motion.div
-              className='flex items-center space-x-12 whitespace-nowrap'
+              className='flex items-center space-x-8 whitespace-nowrap'
               animate={{
-                x: [-1584, 0], // Reverse direction with matching distance
+                x: ["-50%", "0%"],
               }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 35,
+                  duration: 30,
                   ease: "linear",
                 },
               }}
             >
-              {duplicatedReversedSponsors.map((sponsor, index) => (
-                <motion.div
-                  key={`reverse-${sponsor.name}-${index}`}
-                  className='flex-shrink-0 w-32 h-20 relative group'
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+              {[
+                ...sponsors.slice().reverse(),
+                ...sponsors.slice().reverse(),
+              ].map((sponsor, index) => (
+                <div
+                  key={`row2-${sponsor.name}-${index}`}
+                  className='flex-shrink-0 w-40 h-28'
                 >
-                  <div className='glass rounded-xl p-4 w-full h-full flex items-center justify-center bg-white/5 hover:bg-white/10 transition-all group-hover:shadow-lg'>
+                  <motion.div
+                    className='w-full h-full bg-gradient-to-br from-kente-gold/10 to-terracotta/5 backdrop-blur-sm rounded-xl border border-kente-gold/20 flex items-center justify-center p-4 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer'
+                    whileHover={{
+                      scale: 1.05,
+                      backgroundColor: "rgba(255, 215, 0, 0.15)",
+                      borderColor: "rgba(255, 215, 0, 0.3)",
+                    }}
+                  >
                     <Image
                       src={sponsor.image}
                       alt={sponsor.name}
-                      width={80}
-                      height={40}
-                      className='object-contain filter brightness-90 group-hover:brightness-110 transition-all'
+                      width={120}
+                      height={80}
+                      className='object-contain max-w-full max-h-full filter brightness-90 group-hover:brightness-110 transition-all duration-300'
                     />
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               ))}
             </motion.div>
           </div>
