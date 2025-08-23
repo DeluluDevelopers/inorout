@@ -1,0 +1,16 @@
+<!-- Placeholder for hero poster image -->
+<!-- Replace with actual hero poster (1920x1080 recommended) -->
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3b8a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6af1ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd86a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#heroGrad)" opacity="0.3"/>
+  <rect width="1920" height="1080" fill="#05060a" opacity="0.7"/>
+  <text x="960" y="480" font-family="Arial, sans-serif" font-size="120" font-weight="bold" text-anchor="middle" fill="white">THE FLOW</text>
+  <text x="960" y="620" font-family="Arial, sans-serif" font-size="120" font-weight="bold" text-anchor="middle" fill="#ff3b8a">PARTY</text>
+  <text x="960" y="720" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="#9aa0a6">Hero Poster Placeholder</text>
+</svg>
