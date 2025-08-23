@@ -10,6 +10,7 @@ import Tickets from "../src/components/Tickets";
 import Gallery from "../src/components/Gallery";
 import Location from "../src/components/Location";
 import Sponsors from "../src/components/Sponsors";
+import ThankYou from "../src/components/ThankYou";
 import Footer from "../src/components/Footer";
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
       <Gallery />
       <Location />
       <Sponsors />
+      <ThankYou />
       <Footer />
     </main>
   );

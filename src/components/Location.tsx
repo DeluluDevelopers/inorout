@@ -28,8 +28,8 @@ const Location = () => {
             Event <span className='neon-text'>Location</span>
           </h2>
           <p className='font-body text-lg md:text-xl text-white/80 max-w-2xl mx-auto'>
-            Join us in the spiritual and scenic beauty of Rishikesh for the Afro
-            Vibes Festival 2025
+            Join us at Bliss Resorts for the IN or Out Afro Vibe Festival 2025
+            with Kjnrwhite - A celebration of culture, glamour, and unity
           </p>
         </motion.div>
 
@@ -43,7 +43,7 @@ const Location = () => {
           >
             <div className='glass rounded-2xl p-8'>
               <h3 className='font-heading font-bold text-2xl text-white mb-6'>
-                Rishikesh, Uttarakhand, India
+                Bliss Resorts, Rishikesh
               </h3>
 
               <div className='space-y-4'>
@@ -64,9 +64,9 @@ const Location = () => {
                       Address
                     </h4>
                     <p className='text-white/70 font-body'>
-                      Festival Grounds, Rishikesh
+                      Bliss Resorts
                       <br />
-                      Uttarakhand 249137
+                      Rishikesh, Uttarakhand
                       <br />
                       India
                     </p>
@@ -90,11 +90,11 @@ const Location = () => {
                       Event Dates
                     </h4>
                     <p className='text-white/70 font-body'>
-                      October 3rd & 4th, 2025
+                      Day 1: 4:00 PM till dawn
                       <br />
-                      Day 1: 4:00 PM onwards
+                      Day 2: 8:00 AM - 1:00 AM
                       <br />
-                      Day 2: 3:00 PM onwards
+                      Theme-based cultural experiences
                     </p>
                   </div>
                 </div>
@@ -118,9 +118,9 @@ const Location = () => {
                     <p className='text-white/70 font-body'>
                       5,000+ attendees
                       <br />
-                      Riverside venue
+                      Resort grounds & concert area
                       <br />
-                      Historic monument backdrop
+                      Pool party & adventure activities
                     </p>
                   </div>
                 </div>
@@ -212,7 +212,7 @@ const Location = () => {
           >
             <div className='glass rounded-2xl p-4 h-96 relative overflow-hidden'>
               <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462166.23842808396!2d78.18803430!3d30.08765292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093e67cf93f111%3A0xcc78804a6f941bfe!2sRishikesh%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1692693600000!5m2!1sen!2sin'
+                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462.75!2d78.1607991!3d30.1349013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093b02e988e493%3A0x583e57f69abbd488!2sBliss%2BResorts!5e0!3m2!1sen!2sin!4v1692693600000!5m2!1sen!2sin'
                 width='100%'
                 height='100%'
                 style={{ border: 0, borderRadius: "12px" }}
@@ -220,7 +220,7 @@ const Location = () => {
                 loading='lazy'
                 referrerPolicy='no-referrer-when-downgrade'
                 className='rounded-xl'
-                title='Rishikesh, Uttarakhand - Afro Vibes Festival 2025 Venue'
+                title='Bliss Resorts - IN or Out Afro Vibe Festival 2025 Venue'
               />
             </div>
           </motion.div>

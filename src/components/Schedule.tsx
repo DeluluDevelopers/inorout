@@ -13,95 +13,91 @@ interface ScheduleItem {
 }
 
 const scheduleData: ScheduleItem[] = [
-  // Day 1 - October 3rd, 2025
+  // Day 1 - V.I.B.E. Experience (Vacation in Bliss Experience)
   {
     time: "4:00 PM",
-    title: "Gates Open",
+    title: "Grand Opening Parade & Welcome Address",
     description:
-      "Welcome to Afro Vibes Festival 2025! Registration and welcome drinks",
+      "Opening showcase with African & Indian drummers, dancers, Drama, fashion and cultural Diversity. Welcome speech introducing the vision of V.I.B.E. 2025.",
     type: "special",
     day: 1,
   },
   {
     time: "5:00 PM",
-    title: "Cultural Opening Ceremony",
+    title: "Cultural Showcases",
     description:
-      "Traditional performances celebrating African heritage and culture",
-    type: "special",
+      "Traditional dances, storytelling, and live art installations from Africa & India.",
+    type: "performance",
     day: 1,
   },
   {
     time: "6:30 PM",
-    title: "Emerging Artists Showcase",
-    description: "Platform for upcoming talents to shine on the main stage",
-    type: "performance",
+    title: "Fashion Runway",
+    description:
+      "African & Indian designers present vibrant collections. Fusion runway highlighting shared aesthetics and creativity.",
+    type: "special",
     day: 1,
   },
   {
     time: "8:00 PM",
-    title: "Afrobeat Legends",
+    title: "Food & Lifestyle Fair",
     description:
-      "Classic Afrobeat rhythms and contemporary fusion performances",
-    type: "performance",
+      "A marketplace featuring African and Indian delicacies. Lifestyle booths (crafts, art, music merchandise).",
+    type: "break",
     day: 1,
   },
   {
     time: "10:00 PM",
-    title: "Headliner Performance",
-    description: "Main stage spectacular featuring international artists",
-    type: "performance",
-    day: 1,
-  },
-  {
-    time: "12:00 AM",
-    title: "Night Vibes Session",
-    description: "Late night chill-out with ambient African sounds",
+    title: "Business & Trade Exhibitions",
+    description:
+      "Spotlight on African and Indian entrepreneurs. Networking space for partnerships and collaborations.",
     type: "special",
     day: 1,
   },
-  // Day 2 - October 4th, 2025
+  // Day 2 - Adventure & Music Experience
   {
-    time: "3:00 PM",
-    title: "Day 2 Opening",
+    time: "8:00 AM",
+    title: "Morning Adventure Hike/Jetski",
     description:
-      "Afternoon opening with acoustic sessions and artist interactions",
+      "Guided hiking trails around Bliss Resort. Nature bonding and wellness activities.",
     type: "special",
     day: 2,
   },
   {
-    time: "4:30 PM",
-    title: "Cultural Fusion Workshop",
-    description: "Interactive sessions blending different musical traditions",
-    type: "special",
+    time: "12:00 PM",
+    title: "Lunch & Chill",
+    description: "Refresh and recharge with light meals and drinks.",
+    type: "break",
     day: 2,
   },
   {
-    time: "6:00 PM",
-    title: "Regional Artists Spotlight",
-    description: "Celebrating local and regional talent from across India",
-    type: "performance",
-    day: 2,
-  },
-  {
-    time: "8:00 PM",
-    title: "International Collaboration",
+    time: "4:00 PM",
+    title: "Pool Party 🏊‍♂️ 🎶",
     description:
-      "Cross-cultural musical collaborations and fusion performances",
-    type: "performance",
-    day: 2,
-  },
-  {
-    time: "10:30 PM",
-    title: "Grand Finale",
-    description: "Festival finale with all artists coming together",
-    type: "performance",
-    day: 2,
-  },
-  {
-    time: "12:30 AM",
-    title: "Closing Celebration",
-    description: "Community gathering and farewell ceremony",
+      "DJ sets by the pool. Music, dance, and social vibes to relax before the evening rave. Food & drinks available poolside.",
     type: "special",
+    day: 2,
+  },
+  {
+    time: "7:00 PM",
+    title: "DJ Warm-Up Sets",
+    description: "Top African & Indian DJs set the mood for the night.",
+    type: "performance",
+    day: 2,
+  },
+  {
+    time: "8:30 PM",
+    title: "RAW Performances & Neon Experience",
+    description: "Live DJ sets, dance battles, glow-in-the-dark visuals.",
+    type: "performance",
+    day: 2,
+  },
+  {
+    time: "11:30 PM",
+    title: "Unity Hour & Grand Closing Rave",
+    description:
+      "Crowd interactive moment symbolizing Peace, Love & Unity. High-energy finale bringing everyone together.",
+    type: "performance",
     day: 2,
   },
 ];
@@ -333,11 +329,11 @@ const Schedule = () => {
           className='text-center mb-16'
         >
           <h2 className='font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 text-white'>
-            Festival <span className='neon-text'>Schedule</span>
+            Event <span className='neon-text'>Timeline</span>
           </h2>
           <p className='font-body text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8'>
-            Two days of groundbreaking celebration featuring diverse artists and
-            cultural experiences
+            Experience two unique days of cultural celebration, adventure, and
+            music at Bliss Resorts
           </p>
 
           {/* Day Selector */}

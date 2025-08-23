@@ -65,10 +65,18 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className='font-heading font-black text-6xl md:text-8xl lg:text-9xl mb-6 leading-none'
+          className='font-heading font-black text-5xl md:text-7xl lg:text-8xl mb-6 leading-none'
         >
-          <span className='block text-white'>Afro Vibes</span>
-          <span className='block neon-text tracking-wider'>Festival 2025</span>
+          <span className='block text-white'>IN or Out</span>
+          <span className='block neon-text tracking-wider'>
+            Afro Vibe Festival
+          </span>
+          <span className='block text-[var(--accent-yellow)] text-4xl md:text-5xl lg:text-6xl'>
+            2025
+          </span>
+          <span className='block text-[var(--accent-cyan)] text-3xl md:text-4xl lg:text-5xl mt-2'>
+            with Kjnrwhite
+          </span>
         </motion.h1>
 
         <motion.p
@@ -77,7 +85,8 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1 }}
           className='font-body text-xl md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto tracking-wide'
         >
-          A Groundbreaking Celebration of Culture, Unity, and Entertainment
+          A Day of Culture, Glamour, and Celebration - Building Unity Through
+          Entertainment
         </motion.p>
 
         <motion.div
@@ -86,7 +95,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1.2 }}
           className='text-[var(--muted)] text-lg md:text-xl mb-12 font-body'
         >
-          03 & 04 Oct 2025 | Rishikesh, Uttarakhand, India
+          Bliss Resorts, Rishikesh | Day 1: 4pm till dawn | Day 2: 8am - 1am
         </motion.div>
 
         <motion.div
