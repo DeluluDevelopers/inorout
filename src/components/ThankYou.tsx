@@ -79,7 +79,7 @@ const ThankYou = () => {
                 <div className='w-32 h-32 md:w-40 md:h-40 relative rounded-full overflow-hidden border-4 border-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-cyan)] p-1'>
                   <div className='w-full h-full rounded-full overflow-hidden'>
                     <Image
-                      src='/assets/kjnrwhite.png'
+                      src='/assets/topPic.png'
                       alt='Dr. Stephen Torto - Co-Founder & Executive Director, IN OR OUT Events'
                       width={160}
                       height={160}
@@ -116,14 +116,15 @@ const ThankYou = () => {
                   </h3>
                   <div className='space-y-4 text-cream/90'>
                     <p>
-                      <strong>Nwa-Mazi Kanu Chukwuma Greg</strong> popularly known as 
-                      kjnrwhite is an Entertainer, Event Planner, Nollywood Actor, 
-                      and A Student of Sharda University, Greater Noida, India. 
-                      A Native of Ndi-Akunwanta Uno Arondizuogu Imo state Nigeria.
+                      <strong>Nwa-Mazi Kanu Chukwuma Greg</strong> popularly
+                      known as kjnrwhite is an Entertainer, Event Planner,
+                      Nollywood Actor, and A Student of Sharda University,
+                      Greater Noida, India. A Native of Ndi-Akunwanta Uno
+                      Arondizuogu Imo state Nigeria.
                     </p>
                     <p>
-                      kjnrwhite has the passion to create an Environment that 
-                      foster Harmony, Unity and Love, he has been actively 
+                      kjnrwhite has the passion to create an Environment that
+                      foster Harmony, Unity and Love, he has been actively
                       involved in the Entertainment industry since 2016.
                     </p>
                   </div>
@@ -150,16 +151,18 @@ const ThankYou = () => {
                 </h3>
                 <div className='space-y-4 text-cream/90'>
                   <p>
-                    Successfully organized multiple events, including: A Trip to 
-                    Party 6; vibrant event celebrating youth and music. Wet Before Winter: 
-                    A well-received cultural and entertainment experience. Known for his 
-                    ability to bring together diverse audiences and deliver memorable experiences.
+                    Successfully organized multiple events, including: A Trip to
+                    Party 6; vibrant event celebrating youth and music. Wet
+                    Before Winter: A well-received cultural and entertainment
+                    experience. Known for his ability to bring together diverse
+                    audiences and deliver memorable experiences.
                   </p>
                   <p>
-                    <strong>Commitment to Excellence:</strong> With a proven track record, 
-                    KJNRWHITE is dedicated to ensuring that the &ldquo;IN or OUT Afro vibe festival 2025&rdquo; 
-                    will be a world-class event, fostering cultural exchange and unity between 
-                    Indian nationals and Africans.
+                    <strong>Commitment to Excellence:</strong> With a proven
+                    track record, KJNRWHITE is dedicated to ensuring that the
+                    &ldquo;IN or OUT Afro vibe festival 2025&rdquo; will be a
+                    world-class event, fostering cultural exchange and unity
+                    between Indian nationals and Africans.
                   </p>
                 </div>
               </div>
@@ -167,7 +170,11 @@ const ThankYou = () => {
               {/* Thank you for coming banner */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                animate={
+                  isInView
+                    ? { opacity: 1, scale: 1 }
+                    : { opacity: 0, scale: 0.9 }
+                }
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className='mt-12 text-center'
               >
