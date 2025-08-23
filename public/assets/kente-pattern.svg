@@ -1,0 +1,30 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Kente-inspired pattern with traditional colors -->
+  <defs>
+    <pattern id="kenteBase" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#8b5a3c"/>
+      <rect x="0" y="0" width="5" height="20" fill="#ffd700"/>
+      <rect x="10" y="0" width="5" height="20" fill="#dc143c"/>
+      <rect x="0" y="0" width="20" height="5" fill="#228b22"/>
+      <rect x="0" y="10" width="20" height="5" fill="#1e3a8a"/>
+    </pattern>
+    
+    <pattern id="kenteAccent" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="transparent"/>
+      <circle cx="5" cy="5" r="2" fill="#ffd700" opacity="0.7"/>
+    </pattern>
+  </defs>
+  
+  <!-- Base pattern -->
+  <rect width="60" height="60" fill="url(#kenteBase)"/>
+  
+  <!-- Accent overlay -->
+  <rect width="60" height="60" fill="url(#kenteAccent)"/>
+  
+  <!-- Diagonal accent lines -->
+  <g stroke="#ffd700" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="0" x2="60" y2="60"/>
+    <line x1="0" y1="20" x2="40" y2="60"/>
+    <line x1="20" y1="0" x2="60" y2="40"/>
+  </g>
+</svg>

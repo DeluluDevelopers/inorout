@@ -51,7 +51,7 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-black/80 backdrop-blur-lg border-b border-white/10 h-16"
+          ? "glass-textured backdrop-blur-xl border-b border-kente-gold/20 woven-texture h-16"
           : "bg-transparent h-20"
       }`}
     >
@@ -59,14 +59,15 @@ const Header = () => {
         {/* Logo */}
         <motion.div
           whileHover={{ scale: 1.05 }}
-          className='flex items-center space-x-2'
+          className='flex items-center space-x-3'
         >
-          <div className='w-8 h-8 bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-cyan)] rounded-full flex items-center justify-center'>
-            <span className='text-black font-bold text-sm'>F</span>
+          <div className='w-10 h-10 bg-afro-gradient rounded-full flex items-center justify-center animate-drum-beat'>
+            <span className='text-bg-dark font-bold text-lg'>🎵</span>
           </div>
-          <span className='font-heading font-bold text-xl text-white'>
-            Flow Party
-          </span>
+          <div className='font-heading font-bold text-xl'>
+            <span className='text-kente-gold'>Afro</span>
+            <span className='text-cream'>Vibe</span>
+          </div>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -75,17 +76,17 @@ const Header = () => {
             <a
               key={item.href}
               href={item.href}
-              className={`relative font-body font-medium transition-colors hover:text-[var(--accent-cyan)] ${
+              className={`relative font-body font-medium transition-colors hover:text-kente-gold ${
                 activeSection === item.href.slice(1)
-                  ? "text-[var(--accent-cyan)]"
-                  : "text-white"
+                  ? "text-kente-gold"
+                  : "text-cream"
               }`}
             >
               {item.label}
               {activeSection === item.href.slice(1) && (
                 <motion.div
                   layoutId='activeNav'
-                  className='absolute -bottom-1 left-0 right-0 h-0.5 bg-[var(--accent-cyan)]'
+                  className='absolute -bottom-1 left-0 right-0 h-0.5 bg-kente-gold'
                 />
               )}
             </a>
@@ -97,24 +98,24 @@ const Header = () => {
           href='#tickets'
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className='hidden md:flex items-center px-6 py-3 bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-yellow)] text-black font-body font-semibold rounded-full hover:shadow-lg transition-shadow'
+          className='hidden md:flex items-center btn-tactile px-6 py-3 bg-afro-gradient text-bg-dark font-body font-semibold rounded-full hover:shadow-lg transition-shadow'
         >
-          Buy Tickets
+          🎟️ Buy Tickets
         </motion.a>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className='md:hidden p-2 text-white'
+          className='md:hidden p-2 text-cream'
           aria-label='Toggle mobile menu'
         >
           <motion.div
             animate={isMobileMenuOpen ? { rotate: 45 } : { rotate: 0 }}
-            className='w-6 h-0.5 bg-white mb-1'
+            className='w-6 h-0.5 bg-kente-gold mb-1'
           />
           <motion.div
             animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className='w-6 h-0.5 bg-white mb-1'
+            className='w-6 h-0.5 bg-kente-gold mb-1'
           />
           <motion.div
             animate={
@@ -132,7 +133,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className='md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10'
+            className='md:hidden glass-textured backdrop-blur-xl border-t border-kente-gold/20 woven-texture'
           >
             <div className='container mx-auto px-6 py-6'>
               {navItems.map((item, index) => (
@@ -143,7 +144,7 @@ const Header = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className='block py-3 text-white font-body hover:text-[var(--accent-cyan)] transition-colors'
+                  className='block py-3 text-cream font-body hover:text-kente-gold transition-colors'
                 >
                   {item.label}
                 </motion.a>
