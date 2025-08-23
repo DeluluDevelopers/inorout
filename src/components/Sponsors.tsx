@@ -55,7 +55,7 @@ const Sponsors = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className='relative overflow-hidden mb-8'
+          className='relative overflow-hidden mb-8 py-4'
         >
           <div className='flex items-center'>
             <motion.div
@@ -75,22 +75,25 @@ const Sponsors = () => {
               {[...sponsors, ...sponsors].map((sponsor, index) => (
                 <div
                   key={`row1-${sponsor.name}-${index}`}
-                  className='flex-shrink-0 w-40 h-28'
+                  className='flex-shrink-0 w-44 h-32 p-2'
                 >
                   <motion.div
-                    className='w-full h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl border border-white/20 flex items-center justify-center p-4 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer'
+                    className='w-full h-full bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-2xl border border-white/30 flex items-center justify-center p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer relative overflow-hidden'
                     whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "rgba(255, 255, 255, 0.15)",
-                      borderColor: "rgba(255, 255, 255, 0.3)",
+                      scale: 1.08,
+                      backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      borderColor: "rgba(255, 255, 255, 0.5)",
                     }}
+                    style={{ transformOrigin: "center" }}
                   >
+                    {/* Subtle inner glow */}
+                    <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                     <Image
                       src={sponsor.image}
                       alt={sponsor.name}
                       width={120}
                       height={80}
-                      className='object-contain max-w-full max-h-full filter brightness-90 group-hover:brightness-110 transition-all duration-300'
+                      className='object-contain max-w-full max-h-full filter brightness-95 group-hover:brightness-110 contrast-105 group-hover:contrast-110 transition-all duration-300 relative z-10'
                     />
                   </motion.div>
                 </div>
@@ -104,7 +107,7 @@ const Sponsors = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className='relative overflow-hidden'
+          className='relative overflow-hidden py-4'
         >
           <div className='flex items-center'>
             <motion.div
@@ -127,22 +130,25 @@ const Sponsors = () => {
               ].map((sponsor, index) => (
                 <div
                   key={`row2-${sponsor.name}-${index}`}
-                  className='flex-shrink-0 w-40 h-28'
+                  className='flex-shrink-0 w-44 h-32 p-2'
                 >
                   <motion.div
-                    className='w-full h-full bg-gradient-to-br from-kente-gold/10 to-terracotta/5 backdrop-blur-sm rounded-xl border border-kente-gold/20 flex items-center justify-center p-4 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer'
+                    className='w-full h-full bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-2xl border border-white/30 flex items-center justify-center p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer relative overflow-hidden'
                     whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "rgba(255, 215, 0, 0.15)",
-                      borderColor: "rgba(255, 215, 0, 0.3)",
+                      scale: 1.08,
+                      backgroundColor: "rgba(255, 255, 255, 0.2)",
+                      borderColor: "rgba(255, 255, 255, 0.5)",
                     }}
+                    style={{ transformOrigin: "center" }}
                   >
+                    {/* Subtle inner glow */}
+                    <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
                     <Image
                       src={sponsor.image}
                       alt={sponsor.name}
                       width={120}
                       height={80}
-                      className='object-contain max-w-full max-h-full filter brightness-90 group-hover:brightness-110 transition-all duration-300'
+                      className='object-contain max-w-full max-h-full filter brightness-95 group-hover:brightness-110 contrast-105 group-hover:contrast-110 transition-all duration-300 relative z-10'
                     />
                   </motion.div>
                 </div>
