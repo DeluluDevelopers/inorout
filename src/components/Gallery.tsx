@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 interface GalleryImage {
@@ -74,6 +74,34 @@ const PremiumLightbox = ({
 }) => {
   const currentImage = galleryImages[currentIndex];
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!isOpen) return;
+
+      switch (event.key) {
+        case "Escape":
+          onClose();
+          break;
+        case "ArrowLeft":
+          onPrev();
+          break;
+        case "ArrowRight":
+          onNext();
+          break;
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, onClose, onNext, onPrev]);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -82,14 +110,12 @@ const PremiumLightbox = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className='fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4'
-          onClick={onClose}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             className='relative max-w-6xl w-full h-full flex flex-col items-center justify-center'
-            onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div className='absolute top-0 left-0 right-0 flex justify-between items-center p-6 bg-gradient-to-b from-black/50 to-transparent'>
@@ -100,7 +126,11 @@ const PremiumLightbox = ({
                 </p>
               </div>
               <button
-                onClick={onClose}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onClose();
+                }}
                 className='w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors border border-white/20'
               >
                 <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
@@ -128,7 +158,11 @@ const PremiumLightbox = ({
             {/* Navigation */}
             <div className='absolute inset-y-0 left-4 flex items-center'>
               <motion.button
-                onClick={onPrev}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onPrev();
+                }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className='w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors border border-white/20'
@@ -147,7 +181,11 @@ const PremiumLightbox = ({
 
             <div className='absolute inset-y-0 right-4 flex items-center'>
               <motion.button
-                onClick={onNext}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onNext();
+                }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 className='w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors border border-white/20'

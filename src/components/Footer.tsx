@@ -2,22 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import Image from "next/image";
+import { useRef } from "react";
 
 const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const [email, setEmail] = useState("");
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Mock newsletter signup
-    alert(
-      `Thank you for subscribing with ${email}! We'll keep you updated on future In Or Out events.`
-    );
-    setEmail("");
-  };
 
   const socialLinks = [
     {
@@ -41,10 +30,9 @@ const Footer = () => {
   ];
 
   const legalLinks = [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms & Conditions", href: "#" },
-    { name: "Refund Policy", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms & Conditions", href: "/terms-conditions" },
+    { name: "Refund Policy", href: "/refund-policy" },
   ];
 
   return (
@@ -55,7 +43,7 @@ const Footer = () => {
 
       <div className='container mx-auto px-6 py-16 relative z-10' ref={ref}>
         {/* Main Footer Content */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12'>
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -180,38 +168,6 @@ const Footer = () => {
                 </motion.li>
               ))}
             </ul>
-          </motion.div>
-
-          {/* Newsletter */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h3 className='font-heading font-bold text-xl text-white mb-6'>
-              Stay Updated
-            </h3>
-            <p className='text-white/70 font-body mb-4'>
-              Get the latest updates on upcoming events and exclusive offers.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className='space-y-3'>
-              <input
-                type='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder='Enter your email'
-                required
-                className='w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[var(--accent-cyan)] transition-colors'
-              />
-              <motion.button
-                type='submit'
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className='w-full py-3 bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-cyan)] text-black font-body font-semibold rounded-lg hover:shadow-lg transition-shadow'
-              >
-                Subscribe
-              </motion.button>
-            </form>
           </motion.div>
         </div>
 
