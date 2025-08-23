@@ -117,31 +117,33 @@ const PremiumLightbox = ({
             exit={{ scale: 0.9, opacity: 0 }}
             className='relative max-w-6xl w-full h-full flex flex-col items-center justify-center'
           >
+            {/* Close button - positioned absolutely */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onClose();
+              }}
+              className='absolute top-6 right-6 z-50 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors border border-white/20'
+            >
+              <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
+                <path
+                  d='M18 6L6 18M6 6l12 12'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                />
+              </svg>
+            </button>
+
             {/* Header */}
-            <div className='absolute top-0 left-0 right-0 flex justify-between items-center p-6 bg-gradient-to-b from-black/50 to-transparent'>
+            <div className='absolute top-0 left-0 right-16 flex justify-start items-center p-6 bg-gradient-to-b from-black/50 to-transparent'>
               <div className='text-white'>
                 <h3 className='font-heading text-xl'>{currentImage.alt}</h3>
                 <p className='text-white/60 font-body text-sm'>
                   Photo by {currentImage.photographer}
                 </p>
               </div>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onClose();
-                }}
-                className='w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors border border-white/20'
-              >
-                <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
-                  <path
-                    d='M18 6L6 18M6 6l12 12'
-                    stroke='currentColor'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                  />
-                </svg>
-              </button>
             </div>
 
             {/* Main Image */}
