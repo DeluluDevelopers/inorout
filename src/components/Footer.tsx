@@ -12,7 +12,7 @@ const Footer = () => {
     {
       name: "Instagram",
       icon: "instagram",
-      url: "https://www.instagram.com/inorout_concert",
+      url: "https://www.instagram.com/inorout_events?igsh=djgwdDFxb3VmdjAx&utm_source=qr",
     },
     {
       name: "WhatsApp",

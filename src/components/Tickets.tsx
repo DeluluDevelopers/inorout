@@ -15,7 +15,7 @@ interface TicketTier {
 const ticketTiers: TicketTier[] = [
   {
     name: "General",
-    price: "₹3,000",
+    price: "TBA",
     features: [
       "General admission access",
       "Access to main stage area",
@@ -26,7 +26,7 @@ const ticketTiers: TicketTier[] = [
   },
   {
     name: "VIP",
-    price: "₹4,000",
+    price: "TBA",
     features: [
       "VIP viewing area access",
       "Express entry & dedicated entrance",
@@ -40,7 +40,7 @@ const ticketTiers: TicketTier[] = [
   },
   {
     name: "Ultra",
-    price: "₹5,000",
+    price: "TBA",
     features: [
       "Ultra premium experience",
       "Backstage access & artist interactions",
