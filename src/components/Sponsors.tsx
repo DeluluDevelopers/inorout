@@ -23,6 +23,7 @@ const sponsors = [
     name: "New Partner",
     image: "/patners/WhatsApp Image 2025-08-26 at 19.49.22_bfe6af05.jpg",
   },
+  { name: "Playboy", image: "/patners/playboy.jpg" },
 ];
 
 const Sponsors = () => {
