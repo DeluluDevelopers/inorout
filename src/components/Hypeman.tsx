@@ -35,7 +35,7 @@ const Hypeman = () => {
             Meet the <span className='afro-heading'>Hypeman</span>
           </h2>
           <p className='font-body text-lg md:text-xl text-sand max-w-3xl mx-auto'>
-            The driving force behind the festival's energy, keeping the crowd electrified.
+            The driving force behind the festival&apos;s energy, keeping the crowd electrified.
           </p>
         </motion.div>
 
