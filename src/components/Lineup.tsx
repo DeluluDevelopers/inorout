@@ -43,6 +43,12 @@ const artists: Artist[] = [
     bio: "Spinning timeless classics and soulful Afrobeat gems, DJ Golden brings a touch of nostalgia and pure vibes.",
     image: "/djs/dj_golden.jpg",
   },
+  {
+    name: "DJ Veelitte",
+    genre: "Afro-Tech / Deep House",
+    bio: "A master of deep, soulful, and rhythmic Afro-tech, DJ Veelitte creates immersive soundscapes that captivate the dance floor.",
+    image: "/djs/df_veelite.jpg",
+  },
 ];
 
 const ArtistCard = ({ artist, index }: { artist: Artist; index: number }) => {

@@ -5,6 +5,7 @@ import Hero from "../src/components/Hero";
 import About from "../src/components/About";
 import Stats from "../src/components/Stats";
 import Lineup from "../src/components/Lineup";
+import Hypeman from "../src/components/Hypeman";
 import Schedule from "../src/components/Schedule";
 import Tickets from "../src/components/Tickets";
 import Gallery from "../src/components/Gallery";
@@ -37,6 +38,7 @@ export default function Home() {
       <About />
       <Stats />
       <Lineup />
+      <Hypeman />
       <Schedule />
       <Tickets />
       <Gallery />

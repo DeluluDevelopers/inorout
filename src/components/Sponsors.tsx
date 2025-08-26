@@ -18,6 +18,11 @@ const sponsors = [
   { name: "Ricky", image: "/patners/ricky.png" },
   { name: "Taari", image: "/patners/taari.png" },
   { name: "Yum", image: "/patners/yum.png" },
+  { name: "Stott Event", image: "/patners/stott_event.jpg" },
+  {
+    name: "New Partner",
+    image: "/patners/WhatsApp Image 2025-08-26 at 19.49.22_bfe6af05.jpg",
+  },
 ];
 
 const Sponsors = () => {
