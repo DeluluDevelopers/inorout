@@ -14,41 +14,41 @@ interface TicketTier {
 
 const ticketTiers: TicketTier[] = [
   {
-    name: "General",
-    price: "₹2,499 ",
+    name: "Regular",
+    price: "₹2,499 (20% off early bird)",
     features: [
       "General admission access",
+      "Transportation to the InOrOut Paradise.",
       "Access to main stage area",
-      "Transportation to the InOrOut Paradise",
       "Event merchandise discount",
     ],
     available: true,
   },
   {
     name: "VIP",
-    price: "₹5999",
+    price: "₹5,999 (20% off early bird)",
     features: [
       "VIP viewing area access",
+      "Transportation to the InOrOut Paradise.",
       "Express entry & dedicated entrance",
-      "Premium bar access",
+      "1 Day Unlimited food and drinks (6pm to 2am)",
       "Meet & greet opportunities",
-      "Exclusive VIP lounge",
-      "Complimentary food & drinks",
+      "Event merchandise discount",
+      "Red Carpet",
     ],
     highlighted: true,
     available: true,
   },
   {
-    name: "Ultra",
-    price: "₹9999",
+    name: "VVIP",
+    price: "₹9,999 (20% off early bird)",
     features: [
       "Ultra premium experience",
+      "Transportation to the InOrOut Paradise.",
+      "2 Days Unlimited food and Drinks (6pm to 2am)",
       "Backstage access & artist interactions",
-      "Private hospitality suite",
-      "Premium catering & unlimited drinks",
-      "Exclusive after-party access",
-      "Personal concierge service",
-      "Official event photography",
+      "Official Festival Photography",
+      "Exclusive after-party access if Any.",
     ],
     available: true,
   },
@@ -238,7 +238,17 @@ const TicketCard = ({
               {ticket.name}
             </h3>
             <div className='text-4xl md:text-5xl font-heading font-black mb-2'>
-              <span className='neon-text'>{ticket.price}</span>
+              <span className='neon-text'>
+                {ticket.price.split("(")[0]}
+                {ticket.price.includes("(") && (
+                  <span
+                    className='block text-base md:text-lg font-heading font-bold text-white/80 mt-1'
+                    style={{ fontSize: "1rem", fontWeight: 500 }}
+                  >
+                    ({ticket.price.split("(")[1]}
+                  </span>
+                )}
+              </span>
             </div>
             <p className='text-white/60 font-body'>per person</p>
           </div>
@@ -322,6 +332,9 @@ const Tickets = () => {
           </h2>
           <p className='font-body text-lg md:text-xl text-white/80 max-w-2xl mx-auto'>
             Choose your experience level and join us for an unforgettable night
+          </p>
+          <p className='font-body text-base md:text-lg text-[var(--accent-yellow)] max-w-2xl mx-auto mt-2'>
+            20% Discount for Early bird from 30th Aug to 15th Sept.
           </p>
         </motion.div>
 

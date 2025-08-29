@@ -26,7 +26,7 @@ const sponsors = [
   },
   { name: "Playboy", image: "/patners/playboy.jpg" },
   { name: "global center fm", image: "/patners/global center fm.jpg" },
-  { name: "goldern animation", image: "/patners/global animation.jpg" },
+  { name: "goldern animation", image: "/patners/goldern animation.jpg" },
   { name: "thulo monare", image: "/patners/thulo monare.jpg" },
   { name: "wds party", image: "/patners/wda party.jpg" },
   { name: "we", image: "/patners/we.jpg" },
