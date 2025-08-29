@@ -15,18 +15,18 @@ interface TicketTier {
 const ticketTiers: TicketTier[] = [
   {
     name: "General",
-    price: "TBA",
+    price: "₹2,499 ",
     features: [
       "General admission access",
       "Access to main stage area",
-      "Complimentary welcome drink",
+      "Transportation to the InOrOut Paradise",
       "Event merchandise discount",
     ],
     available: true,
   },
   {
     name: "VIP",
-    price: "TBA",
+    price: "₹5999",
     features: [
       "VIP viewing area access",
       "Express entry & dedicated entrance",
@@ -40,7 +40,7 @@ const ticketTiers: TicketTier[] = [
   },
   {
     name: "Ultra",
-    price: "TBA",
+    price: "₹9999",
     features: [
       "Ultra premium experience",
       "Backstage access & artist interactions",

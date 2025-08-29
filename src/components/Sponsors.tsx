@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import { image } from "framer-motion/client";
 
 const sponsors = [
   { name: "Africa India", image: "/patners/afica_india.png" },
@@ -24,6 +25,11 @@ const sponsors = [
     image: "/patners/WhatsApp Image 2025-08-26 at 19.49.22_bfe6af05.jpg",
   },
   { name: "Playboy", image: "/patners/playboy.jpg" },
+  { name: "global center fm", image: "/patners/global center fm.jpg" },
+  { name: "goldern animation", image: "/patners/global animation.jpg" },
+  { name: "thulo monare", image: "/patners/thulo monare.jpg" },
+  { name: "wds party", image: "/patners/wda party.jpg" },
+  { name: "we", image: "/patners/we.jpg" },
 ];
 
 const Sponsors = () => {
