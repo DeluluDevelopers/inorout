@@ -24,7 +24,8 @@ const fredoka = Fredoka({
 });
 
 export const metadata: Metadata = {
-  title: "In Or Out World | Unforgettable Events at inorout.world",
+  title:
+    "In Or Out World | Unforgettable Events at inorout.world | In Or Out Concert | In or Out",
   description:
     "Join the best events at In Or Out World. Book your tickets for exclusive experiences at inorout.world. Secure your spot for unforgettable moments and VIP access.",
   keywords: [
