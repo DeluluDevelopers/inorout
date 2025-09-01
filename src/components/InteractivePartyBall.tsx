@@ -68,7 +68,7 @@ const InteractivePartyBall = ({
       transition={{ duration: 2, type: "spring", bounce: 0.4 }}
       className={`fixed top-20 ${
         position === "left" ? "left-20" : "right-20"
-      } w-20 h-20 z-10 cursor-pointer select-none`}
+      } w-20 h-20 z-10 cursor-pointer select-none hidden md:block`}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => {
         mouseX.set(0);

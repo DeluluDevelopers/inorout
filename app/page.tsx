@@ -5,6 +5,7 @@ import Hero from "../src/components/Hero";
 import About from "../src/components/About";
 import Stats from "../src/components/Stats";
 import Lineup from "../src/components/Lineup";
+import DJLineup from "../src/components/DJLineup";
 import Hypeman from "../src/components/Hypeman";
 import Schedule from "../src/components/Schedule";
 import Tickets from "../src/components/Tickets";
@@ -38,6 +39,7 @@ export default function Home() {
       <About />
       <Stats />
       <Lineup />
+      <DJLineup />
       <Hypeman />
       <Schedule />
       <Tickets />

@@ -24,6 +24,7 @@ const sponsors = [
     name: "New Partner",
     image: "/patners/WhatsApp Image 2025-08-26 at 19.49.22_bfe6af05.jpg",
   },
+  { name: "WHSKYKLTR", image: "/patners/whskykltr.jpg" },
   { name: "Playboy", image: "/patners/playboy.jpg" },
   { name: "global center fm", image: "/patners/global center fm.jpg" },
   { name: "goldern animation", image: "/patners/goldern animation.jpg" },
