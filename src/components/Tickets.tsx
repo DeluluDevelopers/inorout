@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
@@ -15,7 +14,7 @@ interface TicketTier {
 const ticketTiers: TicketTier[] = [
   {
     name: "Regular",
-    price: "₹2,499 (20% off early bird)",
+    price: "₹2,499",
     features: [
       "General admission access",
       "Transportation to the InOrOut Paradise.",
@@ -26,7 +25,7 @@ const ticketTiers: TicketTier[] = [
   },
   {
     name: "VIP",
-    price: "₹5,999 (20% off early bird)",
+    price: "₹5,999",
     features: [
       "VIP viewing area access",
       "Transportation to the InOrOut Paradise.",
@@ -41,7 +40,7 @@ const ticketTiers: TicketTier[] = [
   },
   {
     name: "VVIP",
-    price: "₹9,999 (20% off early bird)",
+    price: "₹9,999",
     features: [
       "Ultra premium experience",
       "Transportation to the InOrOut Paradise.",
@@ -54,144 +53,6 @@ const ticketTiers: TicketTier[] = [
   },
 ];
 
-const TicketModal = ({
-  isOpen,
-  onClose,
-  ticketName,
-}: {
-  isOpen: boolean;
-  onClose: () => void;
-  ticketName: string;
-}) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    quantity: 1,
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Mock ticket processing
-    alert(
-      `Thank you! Your ${ticketName} ticket(s) have been reserved. Check your email for confirmation.`
-    );
-    onClose();
-  };
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className='fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6'
-          onClick={onClose}
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            className='glass rounded-2xl p-8 max-w-md w-full'
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className='flex justify-between items-center mb-6'>
-              <h3 className='font-heading font-bold text-2xl text-white'>
-                Purchase {ticketName} Ticket
-              </h3>
-              <button
-                onClick={onClose}
-                className='text-white/60 hover:text-white transition-colors'
-              >
-                <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
-                  <path
-                    d='M18 6L6 18M6 6l12 12'
-                    stroke='currentColor'
-                    strokeWidth='2'
-                    strokeLinecap='round'
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <form onSubmit={handleSubmit} className='space-y-4'>
-              <div>
-                <label className='block text-white/80 font-body text-sm mb-2'>
-                  Full Name
-                </label>
-                <input
-                  type='text'
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className='w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[var(--accent-cyan)]'
-                  placeholder='Enter your full name'
-                />
-              </div>
-
-              <div>
-                <label className='block text-white/80 font-body text-sm mb-2'>
-                  Email Address
-                </label>
-                <input
-                  type='email'
-                  required
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className='w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-[var(--accent-cyan)]'
-                  placeholder='Enter your email'
-                />
-              </div>
-
-              <div>
-                <label className='block text-white/80 font-body text-sm mb-2'>
-                  Quantity
-                </label>
-                <select
-                  value={formData.quantity}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      quantity: parseInt(e.target.value),
-                    })
-                  }
-                  className='w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-[var(--accent-cyan)]'
-                >
-                  {[1, 2, 3, 4, 5].map((num) => (
-                    <option
-                      key={num}
-                      value={num}
-                      className='bg-[var(--bg-dark)]'
-                    >
-                      {num}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className='pt-4'>
-                <button
-                  type='submit'
-                  className='w-full py-3 bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-yellow)] text-black font-body font-bold rounded-lg hover:shadow-lg transition-shadow'
-                >
-                  Reserve Tickets
-                </button>
-                <p className='text-white/60 text-xs mt-2 text-center'>
-                  Mock purchase - no actual payment will be processed
-                </p>
-              </div>
-            </form>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
-
 const TicketCard = ({
   ticket,
   index,
@@ -199,7 +60,10 @@ const TicketCard = ({
   ticket: TicketTier;
   index: number;
 }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const handlePurchase = () => {
+    // Redirect to Razorpay payment link
+    window.open("https://rzp.io/rzp/vKqYPNAd", "_blank");
+  };
 
   return (
     <>
@@ -238,17 +102,7 @@ const TicketCard = ({
               {ticket.name}
             </h3>
             <div className='text-4xl md:text-5xl font-heading font-black mb-2'>
-              <span className='neon-text'>
-                {ticket.price.split("(")[0]}
-                {ticket.price.includes("(") && (
-                  <span
-                    className='block text-base md:text-lg font-heading font-bold text-white/80 mt-1'
-                    style={{ fontSize: "1rem", fontWeight: 500 }}
-                  >
-                    ({ticket.price.split("(")[1]}
-                  </span>
-                )}
-              </span>
+              <span className='neon-text'>{ticket.price}</span>
             </div>
             <p className='text-white/60 font-body'>per person</p>
           </div>
@@ -281,7 +135,7 @@ const TicketCard = ({
           </ul>
 
           <motion.button
-            onClick={() => setModalOpen(true)}
+            onClick={handlePurchase}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             disabled={!ticket.available}
@@ -297,12 +151,6 @@ const TicketCard = ({
           </motion.button>
         </motion.div>
       </motion.div>
-
-      <TicketModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        ticketName={ticket.name}
-      />
     </>
   );
 };
@@ -332,9 +180,6 @@ const Tickets = () => {
           </h2>
           <p className='font-body text-lg md:text-xl text-white/80 max-w-2xl mx-auto'>
             Choose your experience level and join us for an unforgettable night
-          </p>
-          <p className='font-body text-base md:text-lg text-[var(--accent-yellow)] max-w-2xl mx-auto mt-2'>
-            20% Discount for Early bird from 30th Aug to 15th Sept.
           </p>
         </motion.div>
 

@@ -165,14 +165,25 @@ const Lineup = () => {
           <h2 className='font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 text-white'>
             Artist <span className='neon-text'>Lineup</span>
           </h2>
-          <p className='font-body text-base sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed'>
+          <p className='font-body text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto'>
             Celebrating diversity through music - World-class artists bringing
             Afrobeats, House, and Global Fusion to Rishikesh
           </p>
         </motion.div>
 
-        {/* Responsive Grid Layout */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8'>
+        {/* Mobile & Tablet: Horizontal scroll */}
+        <div className='block lg:hidden'>
+          <div className='flex space-x-4 sm:space-x-6 overflow-x-auto pb-6 scrollbar-hide'>
+            {artists.map((artist, index) => (
+              <div key={artist.name} className='flex-none w-72 sm:w-80'>
+                <ArtistCard artist={artist} index={index} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Single row with 4 columns */}
+        <div className='hidden lg:grid lg:grid-cols-4 gap-6 xl:gap-8'>
           {artists.map((artist, index) => (
             <ArtistCard key={artist.name} artist={artist} index={index} />
           ))}
