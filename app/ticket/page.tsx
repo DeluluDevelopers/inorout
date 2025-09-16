@@ -1,7 +1,7 @@
 // app/ticket/page.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 type CreateOrderResp = {
@@ -44,7 +44,7 @@ function loadRazorpayScript(): Promise<boolean> {
   });
 }
 
-export default function TicketPage() {
+function TicketPageContent() {
   const searchParams = useSearchParams();
   const tierParam = searchParams.get("tier") as TicketTier | null;
 
@@ -313,5 +313,28 @@ export default function TicketPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+function TicketPageLoadingFallback() {
+  return (
+    <div className='min-h-screen bg-gray-50 py-12 px-4'>
+      <div className='max-w-md mx-auto'>
+        <div className='text-center mb-8'>
+          <h1 className='text-4xl font-bold text-gray-900 mb-2'>
+            🎫 Book Your Ticket
+          </h1>
+          <p className='text-gray-600'>Loading...</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function TicketPage() {
+  return (
+    <Suspense fallback={<TicketPageLoadingFallback />}>
+      <TicketPageContent />
+    </Suspense>
   );
 }
