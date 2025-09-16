@@ -22,9 +22,11 @@ async function generateSecureQRCode(bookingData: any): Promise<string> {
     // Generate a hash to prevent tampering
     hash: crypto
       .createHash("sha256")
-      .update(`${bookingData.id}-${bookingData.orderId}-${process.env.RAZORPAY_KEY_SECRET}`)
+      .update(
+        `${bookingData.id}-${bookingData.orderId}-${process.env.RAZORPAY_KEY_SECRET}`
+      )
       .digest("hex")
-      .substring(0, 16)
+      .substring(0, 16),
   };
 
   return await QRCode.toDataURL(JSON.stringify(qrData));
@@ -79,9 +81,16 @@ export async function POST(req: Request) {
     }
 
     // Validate that the paid amount matches the expected price for the tier
-    const expectedAmount = VALID_TICKET_PRICES[existingBooking.ticketTier] * 100; // in paise
+    console.log(
+      existingBooking.amount,
+      VALID_TICKET_PRICES[existingBooking.ticketTier]
+    );
+    const expectedAmount =
+      VALID_TICKET_PRICES[existingBooking.ticketTier] * 100; // in paise
     if (existingBooking.amount !== expectedAmount) {
-      console.error(`Amount mismatch: expected ${expectedAmount}, got ${existingBooking.amount}`);
+      console.error(
+        `Amount mismatch: expected ${expectedAmount}, got ${existingBooking.amount}`
+      );
       await prisma.booking.updateMany({
         where: { orderId: razorpay_order_id },
         data: { status: "FAILED", signature: razorpay_signature },
