@@ -32,7 +32,8 @@ const TICKET_NAMES: Record<TicketTier, string> = {
 function loadRazorpayScript(): Promise<boolean> {
   return new Promise((resolve) => {
     if (typeof window === "undefined") return resolve(false);
-    if ((window as any).Razorpay) return resolve(true);
+    if ((window as unknown as { Razorpay?: unknown }).Razorpay)
+      return resolve(true);
 
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";
@@ -93,7 +94,7 @@ export default function TicketPage() {
       const { order, key_id } = (await createRes.json()) as CreateOrderResp;
 
       // 2) open Razorpay checkout
-      const options: any = {
+      const options = {
         key: key_id,
         amount: order.amount,
         currency: order.currency,
@@ -136,8 +137,10 @@ export default function TicketPage() {
               );
               // Optionally redirect to /ticket/confirmed or display ticket details
             }
-          } catch (err: any) {
-            setMessage(err?.message || "Verification error");
+          } catch (err: unknown) {
+            const errorMessage =
+              err instanceof Error ? err.message : "Verification error";
+            setMessage(errorMessage);
           }
         },
         modal: {
@@ -147,11 +150,17 @@ export default function TicketPage() {
         },
       };
 
-      const rzp = new (window as any).Razorpay(options);
-      rzp.open();
-    } catch (err: any) {
+      const razorpayInstance = new (
+        window as unknown as {
+          Razorpay: new (options: unknown) => { open: () => void };
+        }
+      ).Razorpay(options);
+      razorpayInstance.open();
+    } catch (err: unknown) {
       console.error(err);
-      setMessage(err?.message || "Something went wrong");
+      const errorMessage =
+        err instanceof Error ? err.message : "Something went wrong";
+      setMessage(errorMessage);
     } finally {
       setLoading(false);
     }

@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     let parsedData;
     try {
       parsedData = JSON.parse(qrData);
-    } catch (e) {
+    } catch {
       return NextResponse.json({ error: "Invalid QR format" }, { status: 400 });
     }
 
@@ -77,10 +77,11 @@ export async function POST(req: Request) {
         createdAt: booking.createdAt,
       },
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("verify-qr error:", err);
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
     return NextResponse.json(
-      { error: "QR verification failed" },
+      { error: "QR verification failed", details: errorMessage },
       { status: 500 }
     );
   }

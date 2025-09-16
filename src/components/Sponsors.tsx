@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import { image } from "framer-motion/client";
 
 const sponsors = [
   { name: "Africa India", image: "/patners/afica_india.png" },

@@ -70,10 +70,11 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ order, key_id: process.env.RAZORPAY_KEY_ID });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("create-order error:", err);
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
     return NextResponse.json(
-      { error: "Order creation failed" },
+      { error: "Order creation failed", details: errorMessage },
       { status: 500 }
     );
   }

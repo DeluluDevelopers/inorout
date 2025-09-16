@@ -11,7 +11,12 @@ const VALID_TICKET_PRICES: Record<string, number> = {
   VVIP: 9999,
 };
 
-async function generateSecureQRCode(bookingData: any): Promise<string> {
+async function generateSecureQRCode(bookingData: {
+  id: number;
+  orderId: string;
+  customerName: string | null;
+  ticketTier: string;
+}): Promise<string> {
   const qrData = {
     bookingId: bookingData.id,
     orderId: bookingData.orderId,
@@ -59,7 +64,7 @@ export async function POST(req: Request) {
           where: { orderId: razorpay_order_id },
           data: { status: "FAILED", signature: razorpay_signature },
         });
-      } catch (e) {
+      } catch {
         // ignore if not found
       }
       return NextResponse.json(
@@ -105,7 +110,7 @@ export async function POST(req: Request) {
     const qrCodeData = await generateSecureQRCode(existingBooking);
 
     // Signature valid and amount validated -> update booking as CONFIRMED with QR code
-    const updated = await prisma.booking.updateMany({
+    await prisma.booking.updateMany({
       where: { orderId: razorpay_order_id },
       data: {
         paymentId: razorpay_payment_id,
@@ -124,8 +129,12 @@ export async function POST(req: Request) {
       message: "Payment verified — booking confirmed! QR code generated.",
       qrCode: qrCodeData,
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("verify-payment error:", err);
-    return NextResponse.json({ error: "Verification failed" }, { status: 500 });
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json(
+      { error: "Verification failed", details: errorMessage },
+      { status: 500 }
+    );
   }
 }
