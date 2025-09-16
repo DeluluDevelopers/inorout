@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
 const JWT_SECRET = new TextEncoder().encode(
   process.env.JWT_SECRET ||
@@ -48,7 +49,7 @@ export async function GET(req: Request) {
     const sortOrder = searchParams.get("sortOrder") || "desc";
 
     // Build where clause for filtering
-    const whereClause: any = {};
+    const whereClause: Prisma.BookingWhereInput = {};
 
     if (search) {
       whereClause.OR = [
@@ -60,11 +61,11 @@ export async function GET(req: Request) {
     }
 
     if (status) {
-      whereClause.status = status;
+      whereClause.status = status as Prisma.EnumBookingStatusFilter;
     }
 
     if (ticketTier) {
-      whereClause.ticketTier = ticketTier;
+      whereClause.ticketTier = ticketTier as Prisma.EnumTicketTierFilter;
     }
 
     // Get total count for pagination

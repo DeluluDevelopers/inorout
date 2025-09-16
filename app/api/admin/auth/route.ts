@@ -63,7 +63,7 @@ export async function POST(req: Request) {
   }
 }
 
-export async function DELETE(req: Request) {
+export async function DELETE() {
   // Logout endpoint
   const response = NextResponse.json({
     success: true,
