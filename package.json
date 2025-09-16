@@ -6,11 +6,19 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
+    "prisma:migrate": "prisma migrate dev --name init",
+    "prisma:generate": "prisma generate",
     "lint": "eslint"
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@types/qrcode": "^1.5.5",
+    "crypto-js": "^4.2.0",
     "framer-motion": "^11.18.2",
     "next": "15.5.0",
+    "prisma": "^6.16.2",
+    "qrcode": "^1.5.4",
+    "razorpay": "^2.9.6",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },

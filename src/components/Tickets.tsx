@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface TicketTier {
   name: string;
@@ -9,12 +10,14 @@ interface TicketTier {
   features: string[];
   highlighted?: boolean;
   available: boolean;
+  tier: "REGULAR" | "VIP" | "VVIP";
 }
 
 const ticketTiers: TicketTier[] = [
   {
     name: "Regular",
     price: "₹2,499",
+    tier: "REGULAR",
     features: [
       "General admission access",
       "Transportation to the InOrOut Paradise.",
@@ -26,6 +29,7 @@ const ticketTiers: TicketTier[] = [
   {
     name: "VIP",
     price: "₹5,999",
+    tier: "VIP",
     features: [
       "VIP viewing area access",
       "Transportation to the InOrOut Paradise.",
@@ -41,6 +45,7 @@ const ticketTiers: TicketTier[] = [
   {
     name: "VVIP",
     price: "₹9,999",
+    tier: "VVIP",
     features: [
       "Ultra premium experience",
       "Transportation to the InOrOut Paradise.",
@@ -60,9 +65,11 @@ const TicketCard = ({
   ticket: TicketTier;
   index: number;
 }) => {
+  const router = useRouter();
+
   const handlePurchase = () => {
-    // Redirect to Razorpay payment link
-    window.open("https://rzp.io/rzp/vKqYPNAd", "_blank");
+    // Navigate to ticket page with tier parameter
+    router.push(`/ticket?tier=${ticket.tier}`);
   };
 
   return (
