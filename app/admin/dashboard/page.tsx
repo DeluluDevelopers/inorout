@@ -1,7 +1,7 @@
 // app/admin/dashboard/page.tsx
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 interface Booking {
@@ -44,7 +44,7 @@ export default function AdminDashboard() {
 
   const router = useRouter();
 
-  const fetchBookings = async () => {
+  const fetchBookings = useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
@@ -76,11 +76,19 @@ export default function AdminDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [
+    currentPage,
+    search,
+    statusFilter,
+    tierFilter,
+    sortBy,
+    sortOrder,
+    router,
+  ]);
 
   useEffect(() => {
     fetchBookings();
-  }, [currentPage, search, statusFilter, tierFilter, sortBy, sortOrder]);
+  }, [fetchBookings]);
 
   const handleLogout = async () => {
     try {
