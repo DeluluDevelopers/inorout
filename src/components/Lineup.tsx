@@ -49,6 +49,12 @@ const artists: Artist[] = [
     bio: "A master of deep, soulful, and rhythmic Afro-tech, DJ Veelitte creates immersive soundscapes that captivate the dance floor.",
     image: "/djs/df_veelite.jpg",
   },
+  {
+    name: "DJ Wisemunk",
+    genre: "Afrobeat / World Music",
+    bio: "Bringing wisdom and funk to the decks, DJ Wisemunk delivers eclectic mixes that blend global sounds with authentic Afrobeat rhythms.",
+    image: "/djs/wisemunk.jpg",
+  },
 ];
 
 const ArtistCard = ({ artist, index }: { artist: Artist; index: number }) => {

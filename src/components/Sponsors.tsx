@@ -30,6 +30,7 @@ const sponsors = [
   { name: "thulo monare", image: "/patners/thulo monare.jpg" },
   { name: "wds party", image: "/patners/wda party.jpg" },
   { name: "we", image: "/patners/we.jpg" },
+  { name: "southSide", image: "/patners/southSide.jpg" },
 ];
 
 const Sponsors = () => {
