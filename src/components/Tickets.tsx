@@ -44,7 +44,7 @@ const ticketTiers: TicketTier[] = [
       "VIP viewing area access",
       "Transportation to the InOrOut Paradise.",
       "Express entry & dedicated entrance",
-      "1 Day Unlimited food and drinks (6pm to 2am)",
+      "1 Day Accommodation",
       "Meet & greet opportunities",
       "Event merchandise discount",
       "Red Carpet",
@@ -59,7 +59,7 @@ const ticketTiers: TicketTier[] = [
     features: [
       "Ultra premium experience",
       "Transportation to the InOrOut Paradise.",
-      "2 Days Unlimited food and Drinks (6pm to 2am)",
+      "2 Days Accommodation",
       "Backstage access & artist interactions",
       "Official Festival Photography",
       "Exclusive after-party access if Any.",
