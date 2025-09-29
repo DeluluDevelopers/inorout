@@ -68,10 +68,10 @@ export const metadata: Metadata = {
     siteName: "In Or Out World",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/assets/whatsapp.jpg",
         width: 1200,
         height: 630,
-        alt: "In Or Out World Event",
+        alt: "In Or Out World - Afro Vibes Festival 2025",
       },
     ],
     locale: "en_US",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     title: "In Or Out World | Unforgettable Events & VIP Experiences",
     description:
       "Book your tickets for In Or Out World at inorout.world. Exclusive experiences, music festivals, and early bird discounts await.",
-    images: ["/og-image.jpg"],
+    images: ["/assets/whatsapp.jpg"],
     site: "@inoroutworld",
   },
   metadataBase: new URL("https://inorout.world"),
@@ -104,6 +104,12 @@ export default function RootLayout({
     <html lang='en' className='scroll-smooth'>
       <head>
         <link rel='preload' href='/assets/poster.svg' as='image' />
+        {/* Additional meta tags for better social media sharing */}
+        <meta property='og:image:type' content='image/png' />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='theme-color' content='#000000' />
       </head>
       <body
         className={`${righteous.variable} ${poppins.variable} ${fredoka.variable} antialiased`}

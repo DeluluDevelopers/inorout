@@ -15,6 +15,7 @@ enum BookingStatus {
 
 enum TicketTier {
   REGULAR
+  COUPLES
   VIP
   VVIP
 }

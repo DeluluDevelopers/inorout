@@ -349,7 +349,7 @@ const Schedule = () => {
                     : "text-white hover:bg-white/10"
                 }`}
               >
-                Day 1 - Oct 3rd
+                Day 1 - Oct 19
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -361,7 +361,7 @@ const Schedule = () => {
                     : "text-white hover:bg-white/10"
                 }`}
               >
-                Day 2 - Oct 4th
+                Day 2 - Oct 20
               </motion.button>
             </div>
           </div>

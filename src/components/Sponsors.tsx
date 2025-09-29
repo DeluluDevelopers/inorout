@@ -19,6 +19,8 @@ const sponsors = [
   { name: "Taari", image: "/patners/taari.png" },
   { name: "Yum", image: "/patners/yum.png" },
   { name: "Stott Event", image: "/patners/stott_event.jpg" },
+  { name: "Afro Entertainment", image: "/patners/afro entertainment.jpg" },
+  { name: "Malaiway", image: "/patners/malaiway.jpg" },
   {
     name: "New Partner",
     image: "/patners/WhatsApp Image 2025-08-26 at 19.49.22_bfe6af05.jpg",

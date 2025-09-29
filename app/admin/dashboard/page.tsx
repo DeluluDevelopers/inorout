@@ -28,9 +28,18 @@ interface PaginationInfo {
   limit: number;
 }
 
+interface OverallStats {
+  totalBookings: number;
+  confirmedBookings: number;
+  pendingBookings: number;
+  failedBookings: number;
+  totalRevenue: number;
+}
+
 export default function AdminDashboard() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [pagination, setPagination] = useState<PaginationInfo | null>(null);
+  const [stats, setStats] = useState<OverallStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -43,6 +52,27 @@ export default function AdminDashboard() {
   const [sortOrder, setSortOrder] = useState("desc");
 
   const router = useRouter();
+
+  const fetchStats = useCallback(async () => {
+    try {
+      const response = await fetch("/api/admin/stats");
+
+      if (response.status === 401) {
+        router.push("/admin");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch stats");
+      }
+
+      const data = await response.json();
+      setStats(data);
+    } catch (err) {
+      console.error("Stats fetch error:", err);
+      // Don't set error state for stats, just log it
+    }
+  }, [router]);
 
   const fetchBookings = useCallback(async () => {
     setLoading(true);
@@ -88,7 +118,8 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchBookings();
-  }, [fetchBookings]);
+    fetchStats();
+  }, [fetchBookings, fetchStats]);
 
   const handleLogout = async () => {
     try {
@@ -111,6 +142,7 @@ export default function AdminDashboard() {
   const getTierBadge = (tier: string) => {
     const colors = {
       REGULAR: "bg-blue-100 text-blue-800",
+      COUPLES: "bg-green-100 text-green-800",
       VIP: "bg-purple-100 text-purple-800",
       VVIP: "bg-yellow-100 text-yellow-800",
     };
@@ -154,7 +186,7 @@ export default function AdminDashboard() {
 
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8'>
         {/* Stats Cards */}
-        {pagination && (
+        {stats && (
           <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mb-8'>
             <div className='bg-white overflow-hidden shadow rounded-lg'>
               <div className='p-5'>
@@ -168,7 +200,7 @@ export default function AdminDashboard() {
                         Total Bookings
                       </dt>
                       <dd className='text-lg font-medium text-gray-900'>
-                        {pagination.totalBookings}
+                        {stats.totalBookings}
                       </dd>
                     </dl>
                   </div>
@@ -188,10 +220,7 @@ export default function AdminDashboard() {
                         Confirmed
                       </dt>
                       <dd className='text-lg font-medium text-gray-900'>
-                        {
-                          bookings.filter((b) => b.status === "CONFIRMED")
-                            .length
-                        }
+                        {stats.confirmedBookings}
                       </dd>
                     </dl>
                   </div>
@@ -211,7 +240,7 @@ export default function AdminDashboard() {
                         Pending
                       </dt>
                       <dd className='text-lg font-medium text-gray-900'>
-                        {bookings.filter((b) => b.status === "PENDING").length}
+                        {stats.pendingBookings}
                       </dd>
                     </dl>
                   </div>
@@ -231,11 +260,7 @@ export default function AdminDashboard() {
                         Total Revenue
                       </dt>
                       <dd className='text-lg font-medium text-gray-900'>
-                        ₹
-                        {bookings
-                          .filter((b) => b.status === "CONFIRMED")
-                          .reduce((sum, b) => sum + b.amount, 0)
-                          .toLocaleString()}
+                        ₹{stats.totalRevenue.toLocaleString()}
                       </dd>
                     </dl>
                   </div>
@@ -294,6 +319,7 @@ export default function AdminDashboard() {
                 >
                   <option value=''>All Tiers</option>
                   <option value='REGULAR'>Regular</option>
+                  <option value='COUPLES'>Couples</option>
                   <option value='VIP'>VIP</option>
                   <option value='VVIP'>VVIP</option>
                 </select>
@@ -423,7 +449,7 @@ export default function AdminDashboard() {
                         </div>
                       </td>
                       <td className='px-6 py-4 whitespace-nowrap'>
-                        <div>
+                        <div className='flex items-center space-x-2'>
                           <div className='text-sm font-medium text-gray-900'>
                             ₹{booking.amount.toLocaleString()}
                           </div>

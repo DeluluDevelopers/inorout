@@ -14,17 +14,19 @@ type CreateOrderResp = {
   key_id: string;
 };
 
-type TicketTier = "REGULAR" | "VIP" | "VVIP";
+type TicketTier = "REGULAR" | "COUPLES" | "VIP" | "VVIP";
 
 // Secure price mapping - prices in rupees
 const TICKET_PRICES: Record<TicketTier, number> = {
-  REGULAR: 2499,
+  REGULAR: 1500,
+  COUPLES: 2499,
   VIP: 5999,
   VVIP: 9999,
 };
 
 const TICKET_NAMES: Record<TicketTier, string> = {
   REGULAR: "Regular Ticket",
+  COUPLES: "Couples Ticket",
   VIP: "VIP Ticket",
   VVIP: "VVIP Ticket",
 };
@@ -194,6 +196,9 @@ function TicketPageContent() {
               >
                 <option value='REGULAR'>
                   Regular - ₹{TICKET_PRICES.REGULAR.toLocaleString()}
+                </option>
+                <option value='COUPLES'>
+                  Couples - ₹{TICKET_PRICES.COUPLES.toLocaleString()}
                 </option>
                 <option value='VIP'>
                   VIP - ₹{TICKET_PRICES.VIP.toLocaleString()}

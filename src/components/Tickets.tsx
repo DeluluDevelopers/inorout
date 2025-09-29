@@ -10,18 +10,28 @@ interface TicketTier {
   features: string[];
   highlighted?: boolean;
   available: boolean;
-  tier: "REGULAR" | "VIP" | "VVIP";
+  tier: "REGULAR" | "COUPLES" | "VIP" | "VVIP";
 }
 
 const ticketTiers: TicketTier[] = [
   {
     name: "Regular",
-    price: "₹2,499",
+    price: "₹1,500",
     tier: "REGULAR",
     features: [
       "General admission access",
       "Transportation to the InOrOut Paradise.",
-      "Access to main stage area",
+      "Event merchandise discount",
+    ],
+    available: true,
+  },
+  {
+    name: "Couples",
+    price: "₹2,499",
+    tier: "COUPLES",
+    features: [
+      "General admission access",
+      "Transportation to the InOrOut Paradise.",
       "Event merchandise discount",
     ],
     available: true,
@@ -111,7 +121,9 @@ const TicketCard = ({
             <div className='text-4xl md:text-5xl font-heading font-black mb-2'>
               <span className='neon-text'>{ticket.price}</span>
             </div>
-            <p className='text-white/60 font-body'>per person</p>
+            <p className='text-white/60 font-body'>
+              {ticket.tier === "COUPLES" ? "per couple" : "per person"}
+            </p>
           </div>
 
           <ul className='space-y-4 mb-8 flex-1'>
@@ -190,7 +202,7 @@ const Tickets = () => {
           </p>
         </motion.div>
 
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto'>
           {ticketTiers.map((ticket, index) => (
             <TicketCard key={ticket.name} ticket={ticket} index={index} />
           ))}

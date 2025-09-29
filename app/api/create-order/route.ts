@@ -14,7 +14,8 @@ const razorpay = new Razorpay({
 
 // Secure server-side price validation
 const VALID_TICKET_PRICES: Record<string, number> = {
-  REGULAR: 2499,
+  REGULAR: 1500,
+  COUPLES: 2499,
   VIP: 5999,
   VVIP: 9999,
 };
